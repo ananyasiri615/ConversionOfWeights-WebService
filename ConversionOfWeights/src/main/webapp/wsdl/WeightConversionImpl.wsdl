@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ars.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ars.com" xmlns:intf="http://ars.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ars.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="PToK">
+    <complexType>
+     <sequence>
+      <element name="w" type="impl:Weights"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Weights">
+    <sequence>
+     <element name="weight" type="xsd:double"/>
+    </sequence>
+   </complexType>
+   <element name="PToKResponse">
+    <complexType>
+     <sequence>
+      <element name="PToKReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="KToP">
+    <complexType>
+     <sequence>
+      <element name="w" type="impl:Weights"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="KToPResponse">
+    <complexType>
+     <sequence>
+      <element name="KToPReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="PToKRequest">
+
+      <wsdl:part element="impl:PToK" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="PToKResponse">
+
+      <wsdl:part element="impl:PToKResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="KToPResponse">
+
+      <wsdl:part element="impl:KToPResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="KToPRequest">
+
+      <wsdl:part element="impl:KToP" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="WeightConversionImpl">
+
+      <wsdl:operation name="PToK">
+
+         <wsdl:input message="impl:PToKRequest" name="PToKRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:PToKResponse" name="PToKResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="KToP">
+
+         <wsdl:input message="impl:KToPRequest" name="KToPRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:KToPResponse" name="KToPResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="WeightConversionImplSoapBinding" type="impl:WeightConversionImpl">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="PToK">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="PToKRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="PToKResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="KToP">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="KToPRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="KToPResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="WeightConversionImplService">
+
+      <wsdl:port binding="impl:WeightConversionImplSoapBinding" name="WeightConversionImpl">
+
+         <wsdlsoap:address location="http://localhost:8080/ConversionOfWeights/services/WeightConversionImpl"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
